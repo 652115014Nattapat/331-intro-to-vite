@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import EventCard from '@/components/EventCard.vue'
-import Event from '@/types/Event'
+import StudentCard from '@/components/StudentCard.vue'
+import Student from '@/types/Student'
 import { ref, onMounted } from 'vue'
-import EventService from '@/services/EventService'
+import StudentService from '@/services/StudentService'
 
-const events = ref<Event[]>(null)
+const students = ref<Student[]>(null)
 
 onMounted(() => {
-  EventService.getEvents()
+    StudentService.getStudents()
     .then((response) => {
-    events.value = response.data
+        students.value = response.data
     })
   .catch((error) => {
     console.error('There was an error!',error)
@@ -18,10 +18,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
+  <h1>Student Grade</h1>
   <!-- new element -->
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <StudentCard v-for="student in students" :key="student.id" :student="student" />
   </div>
 </template>
 
