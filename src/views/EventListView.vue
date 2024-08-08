@@ -21,7 +21,6 @@ const page = computed(() => props.page)
 const router = useRouter()
 const route = useRoute()
 
-// Get the page size from the query parameter or use a default value
 const getPageSize = () => {
   const pageSize = Number(route.query.pageSize)
   return isNaN(pageSize) ? 3 : pageSize
@@ -40,7 +39,6 @@ onMounted(() => {
   })
 })
 
-// Update the URL with the new page size
 const updatePageSize = (pageSize: number) => {
   router.push({ query: { ...route.query, pageSize } })
 }

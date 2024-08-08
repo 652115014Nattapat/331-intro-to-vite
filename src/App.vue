@@ -10,13 +10,11 @@ const router = useRouter()
 const route = useRoute()
 const pageSize = ref(getPageSize())
 
-// Get the page size from the query parameter or use a default value
 function getPageSize() {
   const pageSize = Number(route.query.pageSize)
   return isNaN(pageSize) ? 2 : pageSize
 }
 
-// Update the URL with the new page size
 const updatePageSize = (newPageSize: number) => {
   router.push({ name: 'event-list-view', query: { ...route.query, pageSize: newPageSize } })
 }
@@ -28,6 +26,7 @@ const updatePageSize = (newPageSize: number) => {
       <div id="flashMessage" class="animate-fade" v-if="message">
         <h4>{{ message }}</h4>
       </div>
+      <h1>Deploy with Vercel</h1>
       <div class="wrapper">
         <nav class="py-6">
           <RouterLink
@@ -63,17 +62,3 @@ const updatePageSize = (newPageSize: number) => {
     <RouterView />
   </div>
 </template>
-<!-- 
-<style>
-@keyframes yellow-fade {
-  from {
-    background-color: yellow;
-  }
-  to {
-    background-color: transparent;
-  }
-}
-#flashMessage {
-  animation: yellow-fade 3s ease-in-out;
-}
-</style> -->

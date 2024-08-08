@@ -1,8 +1,4 @@
 <script setup lang="ts">
-// import { ref, onMounted, defineProps } from 'vue'
-// import { type Event } from '@/types'
-// import EventService from '@/services/EventService'
-// import { useRouter } from 'vue-router'
 import { useEventStore } from '@/stores/event'
 import { storeToRefs } from 'pinia'
 
