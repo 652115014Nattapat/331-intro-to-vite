@@ -28,11 +28,21 @@ const updatePageSize = (newPageSize: number) => {
       <div id="flashMessage" class="animate-fade" v-if="message">
         <h4>{{ message }}</h4>
       </div>
-      <div class = "wrapper">
+      <div class="wrapper">
         <nav class="py-6">
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'event-list-view'}">Event</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'student'}">Student</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'about'}">About</RouterLink>
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
+            :to="{ name: 'event-list-view' }"
+            >Event</RouterLink
+          >
+          <span class="mx-2">|</span>
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
+            :to="{ name: 'about' }"
+            >About</RouterLink
+          >
         </nav>
       </div>
       <!-- Page Size Selection -->
@@ -49,51 +59,13 @@ const updatePageSize = (newPageSize: number) => {
         </span>
       </div>
     </header>
-  <RouterView />
+
+    <RouterView />
   </div>
 </template>
-
-<!-- <style>
-/* #layout{
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smooothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-} */
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-h2{
-  font-size: 20px;
-}
-
-.page-size-links {
-  margin-top: 20px;
-}
-
-.page-size-links a {
-  margin: 0 5px;
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-.page-size-links a.router-link-exact-active {
-  color: #42b983;
-}
-
-/* @keyframes yellow-fade {
+<!-- 
+<style>
+@keyframes yellow-fade {
   from {
     background-color: yellow;
   }
@@ -103,5 +75,5 @@ h2{
 }
 #flashMessage {
   animation: yellow-fade 3s ease-in-out;
-} */
+}
 </style> -->

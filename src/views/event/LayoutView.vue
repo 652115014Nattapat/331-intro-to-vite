@@ -6,29 +6,8 @@
 import { useEventStore } from '@/stores/event'
 import { storeToRefs } from 'pinia'
 
-// const event = ref<Event | null>(null)
-// const props = defineProps({
-//   id: {
-//     type: String,
-//     required: true
-//   }
-// })
-// const router = useRouter()
 const store = useEventStore()
-const {event} = storeToRefs(store)
-// onMounted(() => {
-//   EventService.getEvent(parseInt(props.id))
-//     .then((response) => {
-//       event.value = response.data
-//     })
-//     .catch((error) => {
-//       if (error.response && error.response.status === 404) {
-//         router.push({ name: 'not-found-view', params: { resource: 'event' } })
-//       } else {
-//         router.push({ name: 'network-error-view' })
-//       }
-//     })
-// })
+const { event } = storeToRefs(store)
 </script>
 
 <template>
@@ -55,7 +34,7 @@ const {event} = storeToRefs(store)
       >
         Edit
       </RouterLink>
-      </nav>
-      <RouterView :event="event" />
+    </nav>
+    <RouterView :event="event" />
   </div>
 </template>

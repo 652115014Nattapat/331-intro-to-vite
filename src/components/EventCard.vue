@@ -1,29 +1,22 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import { RouterLink } from 'vue-router';
+import { ref } from 'vue'
+// defineProps<{
+//   msg: string
+// }>()
 import { type Event } from '@/types'
-
 defineProps<{
   event: Event
 }>()
-// const event = ref ({
-//   id: 5928101,
-//   category: 'animal welfare',
-//   title: 'Cat Adoption Day',
-//   description: 'Find your new feline friend at this event.',
-//   location: 'Meow Town',
-//   date: 'January 28, 2022',
-//   time: '12:00',
-//   petsAllowed: true,
-//   organizer: 'Kat Laydee'
-// })
 </script>
 
 <template>
-  <RouterLink class="event-link" :to="{name: 'event-detail-view', params: { id: event.id }}">
-    <div class="cursor-pointer boarder border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp">
+  <RouterLink :to="{ name: 'event-detail-view', params: { id: event.id } }">
+    <!-- <div class="event-card hover:scale-101 hover:shadow-sp"> -->
+    <div
+      class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp"
+    >
       <h2>{{ event.title }}</h2>
-      <span>@{{ event.time }} on {{ event.date }}</span>
+      <span>{{ event.time }} on {{ event.date }}</span>
     </div>
   </RouterLink>
 </template>
@@ -40,7 +33,7 @@ defineProps<{
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 } */
-.event-link{
+.event-link {
   text-decoration: none;
   color: #2c3e50;
 }
