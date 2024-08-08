@@ -1,5 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, useRouter, useRoute } from 'vue-router'
+import { ref } from 'vue'
+
+const router = useRouter()
+const route = useRoute()
+const pageSize = ref(getPageSize())
+
+// Get the page size from the query parameter or use a default value
+function getPageSize() {
+  const pageSize = Number(route.query.pageSize)
+  return isNaN(pageSize) ? 2 : pageSize
+}
+
+// Update the URL with the new page size
+const updatePageSize = (newPageSize: number) => {
+  router.push({ name: 'event-list-view', query: { ...route.query, pageSize: newPageSize } })
+}
 </script>
 
 <template>
@@ -11,6 +27,17 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink :to="{name: 'student'}">Student</RouterLink> |
           <RouterLink :to="{name: 'about'}">About</RouterLink>
         </nav>
+      </div>
+      <!-- Page Size Selection -->
+      <div class="page-size-links">
+        <label>Set Page Size: </label>
+        <RouterLink
+          v-for="size in [1, 2, 3, 4, 5, 6]"
+          :key="size"
+          :to="{ name: 'event-list-view', query: { ...route.query, pageSize: size } }"
+        >
+          {{ size }}
+        </RouterLink>
       </div>
     </header>
   <RouterView />
@@ -41,5 +68,19 @@ nav a.router-link-exact-active {
 
 h2{
   font-size: 20px;
+}
+
+.page-size-links {
+  margin-top: 20px;
+}
+
+.page-size-links a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.page-size-links a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
