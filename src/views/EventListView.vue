@@ -8,7 +8,8 @@ import { useRouter, useRoute } from 'vue-router'
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / getPageSize())
+  // const totalPages = Math.ceil(totalEvents.value / getPageSize())
+  const totalPages = Math.ceil(totalEvents.value / 3)
   return page.value < totalPages
 })
 
@@ -30,7 +31,8 @@ const getPageSize = () => {
 
 onMounted(() => {
   watchEffect(() => {
-    EventService.getEvents(getPageSize(), page.value)
+    // EventService.getEvents(getPageSize(), page.value)
+    EventService.getEvents(3, page.value)
       .then((response) => {
         events.value = response.data
         totalEvents.value = Number(response.headers['x-total-count'])
