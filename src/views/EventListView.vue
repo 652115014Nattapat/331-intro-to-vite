@@ -26,7 +26,7 @@ const route = useRoute()
 //Get page size
 const getPageSize = () => {
   const pageSize = Number(route.query.pageSize)
-  return isNaN(pageSize) ? 2 : pageSize
+  return isNaN(pageSize) ? 3 : pageSize
 }
 
 onMounted(() => {
