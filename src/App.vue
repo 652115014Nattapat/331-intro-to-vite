@@ -23,9 +23,9 @@ const updatePageSize = (newPageSize: number) => {
 </script>
 
 <template>
-  <div class="text-center font-sans text-gray-700 antialias">
+  <div class="text-center font-sans text-gray-700 antialiased">
     <header>
-      <div id="flashMessage" class="animate-fate" v-if="message">
+      <div id="flashMessage" class="animate-fade" v-if="message">
         <h4>{{ message }}</h4>
       </div>
       <div class = "wrapper">
@@ -36,22 +36,24 @@ const updatePageSize = (newPageSize: number) => {
         </nav>
       </div>
       <!-- Page Size Selection -->
-      <div class="page-size-links">
-        <label>Set Page Size: </label>
-        <RouterLink
-          v-for="size in [1, 2, 3, 4, 5, 6]"
-          :key="size"
-          :to="{ name: 'event-list-view', query: { ...route.query, pageSize: size } }"
-        >
-          {{ size }}
-        </RouterLink>
+      <div class="mt-4">
+        <label class="mr-2">Set Page Size: </label>
+        <span v-for="size in [1, 2, 3, 4, 5, 6]" :key="size" class="mr-2">
+          <RouterLink
+            class="text-gray-700 hover:text-green-500"
+            exact-active-class="text-green-500"
+            :to="{ name: 'event-list-view', query: { ...route.query, pageSize: size } }"
+          >
+            {{ size }}
+          </RouterLink>
+        </span>
       </div>
     </header>
   <RouterView />
   </div>
 </template>
 
-<style>
+<!-- <style>
 /* #layout{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smooothing: antialiased;
@@ -102,4 +104,4 @@ h2{
 #flashMessage {
   animation: yellow-fade 3s ease-in-out;
 } */
-</style>
+</style> -->

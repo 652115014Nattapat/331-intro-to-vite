@@ -50,16 +50,17 @@ const updatePageSize = (pageSize: number) => {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
+  <h1 class="text-center text-2xl font-bold mb-4">Events For Good</h1>
   <!-- new element -->
   <div class="flex flex-col item-center">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
-    <div class="pagination">
+    <div class="flex w-72 justify-between mt-4">
       <RouterLink
       id="page-prev"
       :to="{ name: 'event-list-view', query: { page: page-1 }}"
       rel="prev"
       v-if="page != 1"
+      class="text-blue-500 hover:text-blue-700 text-left flex-1"
       >&#60;Prev Page</RouterLink>
 
       <RouterLink
@@ -67,12 +68,13 @@ const updatePageSize = (pageSize: number) => {
       :to="{ name: 'event-list-view', query:{ page: page+1}}"
       rel="next"
       v-if="hasNextPage"
+      class="text-blue-500 hover:text-blue-700 text-left flex-1"
       >Next Page &#62;</RouterLink>
     </div>
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 /* .events {
   display: flex;
   flex-direction: column;
@@ -93,4 +95,4 @@ const updatePageSize = (pageSize: number) => {
 #page-next{
   text-align: right;
 }
-</style>
+</style> -->
