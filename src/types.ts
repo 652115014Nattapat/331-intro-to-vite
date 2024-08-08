@@ -9,3 +9,7 @@ export interface Evevent{
   petsAllowed: boolean,
   organizer: string
 }
+
+export interface MessageState {
+  message: string
+}

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { toRefs, defineProps} from 'vue'
 import { type Event } from '@/types'
+import { useMessageStore } from '@/stores/message'
+import { useRouter } from 'vue-router'
 // import EventService from '@/services/EventService' 
 // const event = ref<Event | null>(null)
 // const props = defineProps({
@@ -24,6 +26,15 @@ const props = defineProps<{
 }>()
 //eslint-disble-next-line @typescript-eslint/no-unused-vars
 const { event } = toRefs (props)
+const store = useMessageStore()
+const router = useRouter()
+const edit = () => {
+  store.updateMessage('You are successfully Edited for ' + props.event.title)
+  setTimeout(() => {
+    store.resetMessage()
+  }, 3000)
+  router.push({ name: 'event-detail-view', params: { id: props.event.id } })
+}
 </script>
 <template>
     <!-- <div v-if="event">
@@ -36,5 +47,6 @@ const { event } = toRefs (props)
             <router-link :to="{ name: 'event-edit-view', params: { id }}">Edit</router-link>
         </nav> -->
         <p>Edit event here</p>
+        <button @click="edit">Edit</button>
     <!-- </div> -->
 </template>
