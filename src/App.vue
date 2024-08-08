@@ -25,7 +25,7 @@ const updatePageSize = (newPageSize: number) => {
 <template>
   <div class="text-center font-sans text-gray-700 antialias">
     <header>
-      <div id="flashMessage" v-if="message">
+      <div id="flashMessage" class="animate-fate" v-if="message">
         <h4>{{ message }}</h4>
       </div>
       <div class = "wrapper">
@@ -91,7 +91,7 @@ h2{
   color: #42b983;
 }
 
-@keyframes yellow-fade {
+/* @keyframes yellow-fade {
   from {
     background-color: yellow;
   }
@@ -101,5 +101,5 @@ h2{
 }
 #flashMessage {
   animation: yellow-fade 3s ease-in-out;
-}
+} */
 </style>
