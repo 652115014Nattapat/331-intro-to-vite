@@ -23,7 +23,7 @@ const updatePageSize = (newPageSize: number) => {
 </script>
 
 <template>
-  <div id = "layout">
+  <div class="text-center font-sans text-gray-700 antialias">
     <header>
       <div id="flashMessage" v-if="message">
         <h4>{{ message }}</h4>
@@ -52,13 +52,13 @@ const updatePageSize = (newPageSize: number) => {
 </template>
 
 <style>
-#layout{
+/* #layout{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smooothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+} */
 
 nav {
   padding: 30px;
