@@ -44,6 +44,20 @@ const updatePageSize = (newPageSize: number) => {
             :to="{ name: 'about' }"
             >About</RouterLink
           >
+          <span class="mx-2">|</span>
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
+            :to="{ name: 'add-event' }"
+            >New Event</RouterLink
+          >
+          <span class="mx-2">|</span>
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
+            :to="{ name: 'add-organizer' }"
+            >New Oreganizer</RouterLink
+          >
         </nav>
       </div>
       <!-- Page Size Selection -->
