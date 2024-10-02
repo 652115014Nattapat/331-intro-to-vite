@@ -7,7 +7,7 @@ export interface Event {
   date: string
   time: string
   petsAllowed: boolean
-  organizer: string
+  organizer: Organizer
 }
 export interface MessageState {
   message: string
@@ -17,6 +17,5 @@ export interface EventState {
 }
 export interface Organizer{
   id: number
-  address: string
-  organizationName: string
+  name: string
 }
